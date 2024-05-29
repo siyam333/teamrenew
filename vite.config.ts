@@ -1,11 +1,10 @@
-import { defineConfig } from 'vite'
-import { svelte } from '@sveltejs/vite-plugin-svelte'
+import { defineConfig } from 'vite';
+import { svelte } from '@sveltejs/vite-plugin-svelte';
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  base: '/teamrenew/',
+  base: '/teamrenew/', // Replace 'teamrenew' with your repository name if different
   plugins: [svelte()],
-  // build: {
-  //   outDir: 'dist'
-  // }
-})
+  build: {
+    outDir: 'dist'
+  }
+});
