@@ -6,22 +6,23 @@
   import ThreeD from "./excess/scene.svelte"
   import Nav from "./nav/Nav.svelte"
   router.subscribe(_ => window.scrollTo(0, 0));
+  router.mode.hash();
 
 </script>
 
 <main>
-  <Route path="/teamrenew">
+  <Route path="/">
     <Home />
     <!-- <ThreeD /> -->
     
   </Route>
 
-  <Route path="/teamrenew/team">
+  <Route path="/team/*">
     <Nav />
     <Team />
   </Route>
 
-  <Route path="/teamrenew/dashboard">
+  <Route path="/dashboard/*">
     <Nav />
     <Dashboard />
   </Route>
