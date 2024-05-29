@@ -51,7 +51,7 @@
         <img src={menu} alt="menu" bind:this={dropdown} />
     </div>
     <!-- <div class="t">
-        <label for="select">Theme : </label>
+        <label for="select">Theme  : </label>
         <select name="Theme" id="Theme">
             <option value="">Default OS</option>
             <option value="">Dark</option>
