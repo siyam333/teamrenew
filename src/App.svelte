@@ -10,18 +10,18 @@
 </script>
 
 <main>
-  <Route path="/">
+  <Route path="/teamrenew">
     <Home />
     <!-- <ThreeD /> -->
     
   </Route>
 
-  <Route path="/team">
+  <Route path="/teamrenew/team">
     <Nav />
     <Team />
   </Route>
 
-  <Route path="/dashboard">
+  <Route path="/teamrenew/dashboard">
     <Nav />
     <Dashboard />
   </Route>
