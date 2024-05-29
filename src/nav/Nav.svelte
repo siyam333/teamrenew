@@ -41,7 +41,7 @@
         <img src={cross} alt="cross" bind:this={wrong} />
     </div>
     <ul>
-        <li bind:this={one}><a href="/teamrenew/">Home</a></li>
+        <li bind:this={one}><a href="/teamrenew">Home</a></li>
         <li bind:this={two}><a href="/teamrenew/team">about us</a></li>
         <li bind:this={three}><a href="/teamrenew/dashboard">dashboard</a></li>
     </ul>
