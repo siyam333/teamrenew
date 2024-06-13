@@ -134,10 +134,10 @@
     }
     @media screen and (max-width:700px){
         header{
-            height: 3em;
+            height: 4em;
         }
         .logo>img{
-            height: 3em;
+            height: 4em;
         }
     }
     @media screen and (max-width: 1000px) {
