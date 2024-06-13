@@ -7,6 +7,7 @@
     import Sponser from "./Sponsers.svelte";
     import Nav from "../nav/Nav.svelte"
     import video from "../lib/about/video.mov";
+    import Gsap from "./Gsap.svelte"
     let wrap: HTMLDivElement, title: HTMLDivElement;
     let main: HTMLElement;
      
@@ -38,6 +39,7 @@
 <Hover />
 <Sponser />
 <Footer />
+
 
 <style>
     

@@ -1,6 +1,6 @@
 <script lang="ts">
-    import shell from "../lib/about/shell.svg";
-    import renew from "../lib/about/renew.png";
+    import shell from "../lib/about/Shell.png";
+    import renew from "../lib/header/App_logo.png";
     import target from "../lib/about/target.png";
     import vision from "../lib/about/vision.png";
     import { fade } from "svelte/transition";
@@ -208,7 +208,7 @@
     .description {
         height: fit-content;
         width: 40em;
-        background-color: #9ed8db;
+        background-color: #6b8ca4;
         color: rgb(0, 0, 0);
         font-weight: 500;
         border-radius: 3em;
@@ -225,15 +225,19 @@
     .images {
         height: 20em;
         width: 12em;
-        display: grid;
+        display: flex;
+        flex-direction: column;
         align-items: center;
-        background-color: #467599;
+        justify-content: center;
+        background-color: #85aac6;
         padding: 2em;
         border-radius: 3em;
         transform: translateY(7em);
         transition: all 3s;
     }
-
+    .images>div>img{
+        width: 10em;
+    }
     span {
         font-size: 2em;
     }
@@ -259,6 +263,8 @@
             height: fit-content;
             border-top: none;
             border-bottom: none;
+            margin: 0em;
+            padding: 1em;
         }
         .abtus > div {
             border-top: solid 0.3em #000;

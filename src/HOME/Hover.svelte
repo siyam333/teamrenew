@@ -83,6 +83,9 @@
         height: 20em;
         width: 40em;
         background-color: #1d3354;
+        display: grid;
+        align-items: center;
+        align-content: center;
         border-radius: 0.5em;
         box-shadow: rgba(0, 0, 0, 0.584) 0em 1em 2em;
     }
@@ -106,20 +109,27 @@
         main {
             flex-wrap: wrap;
             height: max-content;
+            
+        }
+        .scalable{
+            align-items: center;
         }
         .scalable > .imagewrap {
-            height: 20em;
-            width: 20em;
+            height: 15em;
+            width: 15em;
         }
         .scalable:nth-child(2) > .imagewrap {
-            height: 20em;
-            width: 20em;
+            height: 15em;
+            width: 15em;
         }
         .scalable:nth-child(2) > .des {
             filter: blur(0);
         }
         .des {
             width: 20em;
+        }
+        .des>p{
+            padding: 1em;
         }
     }
 </style>
