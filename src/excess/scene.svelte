@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
   import { onMount } from "svelte";
   import * as THREE from "three";
   import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
@@ -72,4 +72,4 @@
   main{
     z-index: 9999999999;
   }
-</style>
+</style> -->

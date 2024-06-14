@@ -57,7 +57,7 @@
 <style>
     nav {
         height: 100vh;
-        background-color: #d64045;
+        background-color: #85aac6;
         position: fixed;
         width: 50vw;
         z-index: 999999;
@@ -132,6 +132,9 @@
         text-decoration: none;
         color: white;
     }
+    .menu>img{
+        filter: invert(1);
+    }
     @media screen and (max-width:700px){
         header{
             height: 4em;
@@ -156,7 +159,10 @@
         a{
             font-size: 0.8em;
         }
-        
-
+    }
+    @media screen and (max-width: 1200px) {
+        nav > ul > li {
+            font-size: 3em;
+        }
     }
 </style>

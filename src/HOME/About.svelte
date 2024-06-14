@@ -4,10 +4,8 @@
     import target from "../lib/about/target.png";
     import vision from "../lib/about/vision.png";
     import { fade } from "svelte/transition";
-
     import { writable } from "svelte/store";
     import { onMount } from "svelte";
-    
 
     let i = 0;
     let words = [
@@ -29,27 +27,10 @@
         }, 4000);
     }
 
-    let img: HTMLDivElement, des: HTMLDivElement;
-
-    function zoom() {
-        des.style.transform = "scale(1.05)";
-        des.style.transition = "all 0.5s";
-    }
-
-    function zoomout() {
-        des.style.transform = "scale(1)";
-        des.style.transition = "all 1s";
-    }
-
-    function zoom1() {
-        img.style.transform = "scale(1.05)";
-        img.style.transition = "all 0.5s";
-    }
-
-    function zoomout1() {
-        img.style.transform = "scale(1)";
-        img.style.transition = "all 1s";
-    }
+    let img: HTMLDivElement;
+    let des: HTMLDivElement;
+    let hov: HTMLParagraphElement;
+    let bend: HTMLDivElement;
 
     function entry() {
         img.style.transform = "translateY(0em)";
@@ -78,37 +59,58 @@
             // You might want to handle the case where IntersectionObserver is not available.
         }
     }
+
+    function move(event: MouseEvent) {
+        if (!event) return;
+
+        // Get the bounding rectangle of the description element
+        const rect = des.getBoundingClientRect();
+
+        // Calculate the x and y positions of the mouse relative to the description element
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        // Get the radius of the bend circle
+        const bendRadius = bend.offsetWidth / 2;
+
+        // Calculate the constrained x and y positions to keep the circle inside the description element
+        const constrainedX = Math.max(
+            bendRadius,
+            Math.min(x, rect.width - bendRadius),
+        );
+        const constrainedY = Math.max(
+            bendRadius,
+            Math.min(y, rect.height - bendRadius),
+        );
+
+        // Set the transform style of the bend circle
+        bend.style.transform = `translate(${constrainedX - bendRadius}px, ${constrainedY - bendRadius}px)`;
+    }
 </script>
 
 <div class="abtus">
     <div>
         <img src={vision} alt="" />
         <p>
-            <span>Vision</span><br> To pioneer the next generation of solutions by solving the problems of tomorrow
+            <span>Vision</span><br /> To pioneer the next generation of solutions
+            by solving the problems of tomorrow
         </p>
     </div>
     <div>
         <img src={target} alt="" />
         <p>
-            <span>Mission</span><br>To create the most energy efficient electric vehicle while incorporating cutting edge technology. 
+            <span>Mission</span><br />To create the most energy efficient
+            electric vehicle while incorporating cutting edge technology.
         </p>
     </div>
-    
 </div>
-
-
 
 <main>
     <div class="wrap" use:viewport on:entry={entry} on:exit={exit}>
-        
         <!-- svelte-ignore a11y-no-static-element-interactions -->
-        <div
-            class="description"
-            bind:this={des}
-            on:mouseenter={zoom}
-            on:mouseleave={zoomout}
-        >
-            <p>
+        <div class="description" bind:this={des} on:mousemove={move}>
+            <div class="bend" bind:this={bend}></div>
+            <p bind:this={hov}>
                 Shell Eco-marathon is one of the world’s leading
                 energy-efficiency engineering programmes for students. It aims
                 to push the boundaries of what is technically possible and
@@ -123,18 +125,11 @@
                 representing
                 <a href="https://www.kct.ac.in/"
                     >Kumaraguru College of Technology</a
-                > are participating in this prestegious competetion to show what
+                > are participating in this prestigious competition to show what
                 our institution can bring out.
             </p>
         </div>
-        
-        <!-- svelte-ignore a11y-no-static-element-interactions -->
-        <div
-            class="images"
-            bind:this={img}
-            on:mouseenter={zoom1}
-            on:mouseleave={zoomout1}
-        >
+        <div class="images" bind:this={img}>
             <div><img src={shell} alt="" /></div>
             <div><img src={renew} alt="" /></div>
         </div>
@@ -163,29 +158,28 @@
         gap: 1em;
         flex-wrap: wrap;
         flex-direction: row;
-        border-top: solid 0.3em #000;
-        border-bottom: solid 0.3em #000;
+        border-top: solid 0.3em #ffffff;
+        border-bottom: solid 0.3em #ffffff;
     }
 
     .abtus > div {
-        
         flex-grow: 1;
         height: 15em;
         width: 15em;
         padding: 0.5em;
-        border-right: solid 0.3em #000;
+        border-right: solid 0.3em #ffffff;
     }
-    .abtus > div>img{
+    .abtus > div > img {
         width: 4em;
+        filter: invert(1);
     }
-    .abtus > div>p{
+    .abtus > div > p {
         text-wrap: wrap;
     }
     .abtus > div:nth-child(2) {
         border-right: none;
     }
 
-    
     main {
         display: grid;
         justify-content: center;
@@ -200,6 +194,7 @@
         gap: 2em;
         flex-wrap: wrap;
         justify-content: center;
+        /* overflow-y: hidden; */
     }
     .wholerollwrap {
         display: inline-flex;
@@ -211,16 +206,31 @@
         background-color: #6b8ca4;
         color: rgb(0, 0, 0);
         font-weight: 500;
-        border-radius: 3em;
-        padding: 2em;
+        border-radius: 1em;
+        /* padding: 2em; */
         transform: translateY(7em);
         transition: all 2s;
+        /* overflow: hidden; */
     }
     .description:hover {
         transform: translateX(2em);
     }
     .description > p {
         font-size: 1.3em;
+        padding: 1em;
+    }
+    .bend {
+        position: absolute;
+        height: 20em;
+        width: 20em;
+        background-color: #0087e8;
+        filter: blur(10em);
+        border-radius: 50%;
+        pointer-events: none;
+        transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: transform 1s ease-out;
+        mix-blend-mode: soft-light;
+        will-change: transform;
     }
     .images {
         height: 20em;
@@ -235,7 +245,7 @@
         transform: translateY(7em);
         transition: all 3s;
     }
-    .images>div>img{
+    .images > div > img {
         width: 10em;
     }
     span {
@@ -258,6 +268,10 @@
     }
 
     @media screen and (max-width: 1000px) {
+        .bend{
+            display: none;
+            
+        }
         .abtus {
             flex-direction: column;
             height: fit-content;
@@ -279,7 +293,7 @@
     }
 
     @media screen and (max-width: 800px) {
-        main{
+        main {
             padding-top: 0em;
         }
         .animate {
@@ -287,15 +301,9 @@
             border-top: none;
             border-bottom: none;
         }
-        .wrapentry {
-            display: none;
-            visibility: hidden;
-            min-width: 15em;
-        }
         .description > p {
             font-size: 1em;
         }
-
         span {
             font-size: 1.3em;
         }
@@ -305,10 +313,10 @@
         .images > div > img {
             width: 10em;
         }
-        .wrap{
+        .wrap {
             width: 90vw;
         }
-        .description{
+        .description {
             padding: 1em;
         }
     }

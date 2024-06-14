@@ -6,7 +6,7 @@
     import Hover from "./Hover.svelte";
     import Sponser from "./Sponsers.svelte";
     import Nav from "../nav/Nav.svelte"
-    import video from "../lib/about/video.mov";
+    import video from "../lib/about/vid4.mp4";
     import Gsap from "./Gsap.svelte"
     let wrap: HTMLDivElement, title: HTMLDivElement;
     let main: HTMLElement;
@@ -27,35 +27,23 @@
     </div>
 </div>
 
-<main bind:this={main}>
+<!-- <main bind:this={main}>
     <div class="wrap">
         <div class="imgwrap">
             <img src={car} alt="car" />
         </div>
     </div>
-</main>
+</main> -->
 
 <About />
 <Hover />
+
 <Sponser />
 <Footer />
 
 
 <style>
     
-    
-
-    main {
-        font-family: "Oswald", sans-serif;
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        padding-top: 3em;
-        height: calc(100vh - 3em);
-        width: 100vw;
-        transform: scale(1);
-        transition: all 0.5s;
-    }
     .wrapentry {
         height: 200vh;
         width: 100vw;
@@ -86,17 +74,16 @@
         margin: 0;
         font-weight: 900;
     }
-
-    .wrap {
+    main {
         display: grid;
         justify-content: center;
         align-items: center;
-        height: 90vh;
-        width: 90vw;
-        border-radius: 5em;
-        color: rgb(255, 255, 255);
-        overflow: hidden;
+        padding-top: 3em;
+        padding-bottom:3em ;
+        height: calc(100vh - 3em);
+        width: 100vw;
     }
+    
 
     .imgwrap {
         width: 90vw;
@@ -104,14 +91,15 @@
     .imgwrap > img {
         object-fit: cover;
         width: 100%;
+        border-radius: 2em;
     }
     @media screen and (max-width: 1000px) {
         main{
-            height: 50vh;
+            height: fit-content;
         }
         .wrap{
             height: fit-content;
-            border-radius: 0.5em;
+            border-radius: 1em;
         }
         .wrapentry{
             height: 50vh;

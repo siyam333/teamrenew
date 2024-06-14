@@ -1,17 +1,17 @@
 <script>
     import { onMount } from "svelte";
-    import asvitha from "../lib/team-photos/asvita.jpg"
-    import prathish from "../lib/team-photos/prathish.jpg"
-    import siyam from "../lib/team-photos/siyam.jpg"
-    import dhanush from "../lib/team-photos/dhanush.jpg"
-    import harini from "../lib/team-photos/harini.jpg"
-    import uthith from "../lib/team-photos/uthith.jpg"
-    import pratheesh from "../lib/team-photos/pratheesh.jpg"
-    import vikkram from "../lib/team-photos/vikkram.jpg"
-    
+    import asvitha from "../lib/team-photos/asvita.jpg";
+    import prathish from "../lib/team-photos/prathish.jpg";
+    import siyam from "../lib/team-photos/siyam.jpg";
+    import dhanush from "../lib/team-photos/dhanush.jpg";
+    import harini from "../lib/team-photos/harini.jpg";
+    import uthith from "../lib/team-photos/uthith.jpg";
+    import pratheesh from "../lib/team-photos/pratheesh.jpg";
+    import vikkram from "../lib/team-photos/vikkram.jpg";
+
     import About from "../HOME/About.svelte";
     let pageX = 0;
-	let pageY = 0;
+    let pageY = 0;
 
     let wrap;
     let translateY = "10em";
@@ -22,7 +22,7 @@
     });
 </script>
 
-<svelte:window on:mousemove={e => ({ pageX, pageY } = e)}/>
+<svelte:window on:mousemove={(e) => ({ pageX, pageY } = e)} />
 
 <main>
     <!-- <div class="circle" style="position: absolute; top: {pageY}px; left: {pageX}px;transition:all 2s ease-in-out;overflow:hidden"></div> -->
@@ -115,7 +115,7 @@
                 <div class="details">
                     <img src={harini} alt="" />
                     <h3>Harini</h3>
-                
+                    <p>Internal Affairs</p>
                 </div>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -153,21 +153,21 @@
     main {
         position: absolute;
         display: flex;
-        width:100vw;
+        width: 100vw;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 1rem;
-        backdrop-filter: blur(10px);   
+        backdrop-filter: blur(10px);
         padding-top: 4em;
         z-index: 9999;
         overflow: hidden;
     }
     .head > p {
         font-size: 5em;
-        color: rgb(0, 0, 0);
         margin: 0;
         font-weight: 900;
+        
     }
     .wrap {
         transform: translateY(var(--translateY));
@@ -180,15 +180,15 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        
     }
     .section1 > div,
     .section2 > div,
     .section3 > div {
-        border-radius: 3em;
-        padding: 1em;
-        width: 20em;
-        height: fit-content;
+        border-radius: 1em;
+    margin: 1em;
+    width: 20em;
+    height: fit-content;
+    box-shadow: white 0.5em 0.5em 0em 0em;
     }
     .section1 > div > div > h3,
     .section2 > div > div > h3,
@@ -209,22 +209,25 @@
     .section1 > div > p,
     .section2 > div > p,
     .section3 > div > p {
-        background-color: aliceblue;
+        background-color: #161b22;
         margin: 0;
         font-size: 1.4rem;
         padding: 1em 2em 1em 2em;
         border-radius: 0em 0em 1em 1em;
     }
-    img{
+    img {
         width: 10em;
         border-radius: 50%;
     }
-    .details>h3{
+    .details > h3 {
         text-align: center;
     }
-    .details>p{
+    .details > p {
         margin: 0;
+        font-size: 1.5em;
+        font-family: "Sue Ellen Francisco", cursive;
         font-weight: 400;
+        font-style: normal;
     }
 
     @media screen and (max-width: 768px) {

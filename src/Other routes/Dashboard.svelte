@@ -130,7 +130,7 @@
     }
     main>p{
         font-size: 5em;
-        color: rgb(0, 0, 0);
+        
         margin: 0;
     }
     img{

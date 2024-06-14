@@ -36,17 +36,19 @@
         display: flex;
         justify-content: center;
         flex-direction: row;
+        height: 70vh;
         flex-wrap: wrap;
         align-items: center;
-        background-color: #000000;
+        background-color: #161b22;
         color: rgb(255, 255, 255);
+        border-radius: 2em 2em 0 0;
     }
     main > div:nth-child(1) {
-        height: 100%;
+       
         width: 50vw;
     }
     main > div:nth-child(2) {
-        height: 100%;
+        
         width: 40vw;
     }
     main > div > p {
@@ -54,6 +56,10 @@
         margin: 0;
         margin-left: 2em;
         margin-bottom: 1em;
+    }
+    main > div > p:nth-child(2) {
+        padding-top: 1em;
+        padding-bottom: 1em;
     }
     .title {
         font-size: 5em;
@@ -74,6 +80,7 @@
     }
     .contact > div > a>img {
         width: 2.5em;
+        filter: grayscale(70%);
     }
     /* .phone {
         filter: invert(1);
@@ -90,13 +97,16 @@
             
             flex-direction: column;
             width: 100vw;
+            height: fit-content;
             overflow: hidden;
             padding-bottom: 0.5em;
             
         }
         main > div:nth-child(1) {
-            width: 100vw;
+            width: fit-content;
             justify-content: center;
+            padding: 1em;
+            padding-top: 4em;
             
         }
         main > div:nth-child(2) {
