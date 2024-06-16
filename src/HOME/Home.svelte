@@ -111,7 +111,7 @@
         }
         .videowrap{
             width: 200vw;
-            margin-left: -50%;
+            margin-left: -100%;
         }
     }
 </style>

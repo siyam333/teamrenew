@@ -82,7 +82,7 @@
     .imagewrap {
         height: 20em;
         width: 40em;
-        background-color: #1f2630;
+        background-color: #161b22;
         display: grid;
         align-items: center;
         align-content: center;

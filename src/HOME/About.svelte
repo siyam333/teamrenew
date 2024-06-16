@@ -203,12 +203,11 @@
     .description {
         height: fit-content;
         width: 40em;
-        background-color: #6b8ca4;
-        color: rgb(0, 0, 0);
+        background-color: #161b22;
         font-weight: 500;
         border-radius: 1em;
         /* padding: 2em; */
-        transform: translateY(7em);
+        transform: translateY(7em) ;
         transition: all 2s;
         /* overflow: hidden; */
     }
@@ -239,7 +238,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-color: #85aac6;
+        background-color: #161b22;
         padding: 2em;
         border-radius: 3em;
         transform: translateY(7em);
@@ -257,7 +256,7 @@
     }
     a {
         text-decoration: none;
-        color: rgb(255, 255, 255);
+        color: #0087e8;
         font-weight: 900;
     }
     .animate {
@@ -281,14 +280,14 @@
             padding: 1em;
         }
         .abtus > div {
-            border-top: solid 0.3em #000;
+            border-top: solid 0.3em #ffffff;
             border-right: none;
             width: 100%;
             padding: 1em 0em 0em 0em;
         }
         .abtus > div:nth-child(3) {
-            border-top: solid 0.3em #000;
-            border-bottom: solid 0.3em #000;
+            border-top: solid 0.3em #ffffff;
+            border-bottom: solid 0.3em #ffffff;
         }
     }
 

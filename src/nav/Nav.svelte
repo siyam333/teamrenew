@@ -57,7 +57,7 @@
 <style>
     nav {
         height: 100vh;
-        background-color: #85aac6;
+        background-color: #ffffff;
         position: fixed;
         width: 50vw;
         z-index: 999999;
@@ -118,6 +118,7 @@
         height: 2em;
         cursor: pointer;
         margin-left: 1em;
+        mix-blend-mode: difference;
     }
     a {
         /* text-decoration: none;
@@ -130,7 +131,7 @@
         padding: 0; */
         font-weight: 900;
         text-decoration: none;
-        color: white;
+        color: rgb(0, 0, 0);
     }
     .menu>img{
         filter: invert(1);
